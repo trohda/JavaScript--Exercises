@@ -11,11 +11,47 @@
 
   <script>
 
+    function orderValueCalculate(wall, TAX_R, TEL_P, ACC_P){
+          
+          var or_v;
+          or_v = TEL_P + ACC_P;
+          or_v = or_v + (or_v * TAX_R);
+
+          if(or_v <= wall){
+            return(or_v);
+          } 
+          else{
+            or_v = TEL_P + (TEL_P * TAX_R);
+            return (or_v);
+          }
+    }
+
     var wallet;
+    var tel_amount = 10;
+    const TAX_RATE = 0.08;
+    const TEL_PRICE = 100;
+    const ACC_PRICE = 10;
+    var order_value ;
+    
+    wallet = prompt("How much money You have in Your wallet? Dollars:");
 
-    wallet = prompt("How much money You have in Your wallet? ");
+    if(isNaN(wallet)){
+      wallet = prompt("Give only an amount of Dollars")
+    }
 
-    alert(wallet);
+    //alert(wallet);
+
+    wallet = Number(wallet);
+    wallet = wallet.toFixed(2);1
+
+    //alert(wallet);
+
+    order_value = orderValueCalculate(wallet, TAX_RATE,TEL_PRICE, ACC_PRICE);
+
+
+    alert(order_value);
+
+    
 
   </script>
   
